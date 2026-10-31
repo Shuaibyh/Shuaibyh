@@ -1,123 +1,155 @@
-# Brandon Sarmiento
+<div align="center">
 
-### Full Stack Developer Junior | Estudiante de Ingeniería de Sistemas
+<img src="./assets/profile-hero.svg" width="100%" alt="Brandon Sarmiento — Full Stack Developer y estudiante de Ingeniería de Sistemas" />
 
-Desarrollo aplicaciones web que conectan interfaces claras con lógica de servidor, persistencia de datos, pruebas y despliegue. Mi trabajo incluye sistemas documentales sobre Cloudflare, aplicaciones educativas con React y Spring Boot, experiencias 3D con Three.js y productos frontend publicados.
+<br />
 
-[![GitHub](https://img.shields.io/badge/GitHub-Shuaibyh-181717?style=flat-square&logo=github)](https://github.com/Shuaibyh)
-[![Ubicación](https://img.shields.io/badge/Chincha%2C_Ica-Perú-0f766e?style=flat-square)](#contacto)
-[![Disponibilidad](https://img.shields.io/badge/Disponible-Remoto-2563eb?style=flat-square)](#contacto)
+**Diseño interfaces. Construyo lógica. Conecto datos. Entrego software que funciona.**
 
-## Perfil
+<br />
 
-Soy estudiante de Ingeniería de Sistemas en la Universidad Nacional de Cañete. Me preparo para asumir un rol Full Stack Junior con experiencia práctica en frontend, APIs, bases de datos, control de acceso, pruebas automatizadas y despliegue continuo.
+<a href="https://github.com/Shuaibyh?tab=repositories"><img alt="Explorar repositorios" src="https://img.shields.io/badge/EXPLORAR_REPOSITORIOS-102B41?style=for-the-badge&logo=github&logoColor=white" /></a>
+<img alt="Ubicación: Chincha, Perú" src="https://img.shields.io/badge/CHINCHA%2C_PER%C3%9A-176B72?style=for-the-badge&logo=googlemaps&logoColor=white" />
+<img alt="Interés en oportunidades remotas junior" src="https://img.shields.io/badge/OPORTUNIDADES_REMOTAS-24345B?style=for-the-badge&logo=internetexplorer&logoColor=white" />
 
-Construyo proyectos completos y documento sus límites con transparencia. Me interesa comprender el sistema de extremo a extremo: experiencia de usuario, reglas de negocio, arquitectura, datos, seguridad y operación.
+</div>
 
-## Tecnologías verificadas
+---
 
-**Frontend**  
-HTML, CSS, JavaScript, TypeScript, React, Vite, Tailwind CSS, diseño responsive y accesibilidad web.
+## `01.`  Perfil profesional
 
-**Backend y datos**  
-Cloudflare Workers, APIs REST, Java 21, Spring Boot, Node.js, Express, PostgreSQL, Cloudflare D1, Workers KV, SQLite, JPA y Flyway.
+Soy **Brandon Sarmiento**, estudiante de **Ingeniería de Sistemas en la Universidad Nacional de Cañete (Perú)**, con enfoque en **desarrollo Full Stack** e interés en construir productos digitales completos: desde la experiencia visual hasta la lógica de negocio, los datos y la puesta en producción.
 
-**Calidad y entrega**  
-Git, GitHub, Docker Compose, Netlify, Wrangler, GitHub Actions, ESLint, Vitest, Playwright, Node Test Runner y documentación técnica.
+Trabajo con tecnologías modernas, aprendo mediante la implementación y busco que cada solución sea **comprensible, funcional, mantenible y verificable**. Me interesa tanto lo que ve el usuario como lo que ocurre detrás: arquitectura, validaciones, persistencia, seguridad, pruebas y despliegue.
 
-**Visualización 3D**  
-Three.js, React Three Fiber, Drei, WebGL y recursos GLB.
+> **Mi enfoque:** entender el problema antes de escribir código; diseñar con propósito, implementar con criterio y mejorar con evidencia.
 
-**En aprendizaje**  
-Seguridad aplicada, observabilidad, arquitectura escalable e integración responsable de inteligencia artificial.
+## `02.`  Áreas de ingeniería
 
-## Proyectos destacados
+<table>
+<tr>
+<td width="50%" valign="top">
 
-### Mesa de Partes Virtual Chinchaysuyo
+### 🎨 Frontend & Experience
 
-Sistema Full Stack para registrar, derivar, atender y consultar expedientes con trazabilidad y acceso por roles.
+Interfaces responsive, componentes reutilizables, accesibilidad y experiencias visuales interactivas.
 
-- Worker de Cloudflare para API e interfaz.
-- Persistencia relacional en D1 y adjuntos privados en Workers KV.
-- Sesiones, permisos por área, derivaciones, comentarios y estados auditables.
-- Pruebas automatizadas, validación de bindings y despliegue con Wrangler.
+</td>
+<td width="50%" valign="top">
 
-**Stack:** Cloudflare Workers, D1, KV, JavaScript, SQL, Wrangler, Node.js.  
-**Estado:** publicado.  
-[Repositorio](https://github.com/Shuaibyh/mesadepartes-chinchaysuyo) · [Demo](https://mesa-partes-chinchaysuyo.brandonsl2024.workers.dev)
+### ⚙️ Backend & APIs
 
-### Simulador 3D de Ensamblaje de PC UNDC
+Servicios web, reglas de negocio, validaciones, integración de sistemas y control de acceso.
 
-Aplicación educativa para practicar el montaje de PC, laptop y estación periférica mediante escenas tridimensionales interactivas.
+</td>
+</tr>
+<tr>
+<td valign="top">
 
-- Interacción con modelos GLB, cámara orbital, enfoque, zoom y animaciones.
-- Reglas de dominio para orden de montaje, conexiones, progreso y validación.
-- Modos de aprendizaje y práctica con persistencia local.
-- Verificación con formato, lint, TypeScript, pruebas y build automatizado.
+### 🗄️ Data & Persistence
 
-**Stack:** React 19, TypeScript, Vite, Three.js, React Three Fiber, Drei, Netlify.  
-**Estado:** publicado.  
-[Repositorio](https://github.com/Shuaibyh/ensamble-pc-undc) · [Demo](https://ensamble-pc-undc.netlify.app)
+Modelado relacional, consultas SQL, persistencia de información y migraciones de base de datos.
 
-### Academia José Pisconte
+</td>
+<td valign="top">
 
-Iniciativa Full Stack para gestión académica, aula virtual y seguimiento de estudiantes.
+### ☁️ Delivery & Cloud
 
-- Separación entre SPA React, API REST Spring Boot y PostgreSQL.
-- Módulos iniciales de estudiantes, cursos, matrículas, comunicados, actividades, entregas y asistencia.
-- Migraciones con Flyway y entorno PostgreSQL mediante Docker Compose.
-- Hoja de ruta explícita para autenticación, autorización, pruebas y seguridad.
+Git, automatización de verificaciones, configuración de entornos y despliegues web.
 
-**Stack:** React, Java 21, Spring Boot, PostgreSQL, JPA, Flyway, Docker Compose.  
-**Estado:** en desarrollo; no está listo para producción. La IA multimodal pertenece a la hoja de ruta y aún no está implementada.  
-[Repositorio](https://github.com/Shuaibyh/academia-jose-pisconte)
+</td>
+</tr>
+<tr>
+<td valign="top">
 
-### Don Emilio Restobar y Eventos
+### 🧊 Interactive 3D
 
-Sitio comercial responsive construido con contenido y fotografías reales proporcionadas para el proyecto.
+Visualización en tiempo real, escenas WebGL y experiencias educativas en tres dimensiones.
 
-- Arquitectura de componentes, navegación adaptable y galería accesible por teclado.
-- Imágenes responsive y manifiesto para controlar activos autorizados.
-- Validación local de consultas sin almacenar datos personales.
-- CI con lint, tipos, pruebas, build y controles del artefacto publicado.
+</td>
+<td valign="top">
 
-**Stack:** React, TypeScript, Tailwind CSS, Vitest, GitHub Actions, Netlify.  
-**Estado:** publicado.  
-[Repositorio](https://github.com/Shuaibyh/don-emilio-restobar) · [Demo](https://don-emilio-restobar.netlify.app)
+### 🧪 Software Quality
 
-### AULIGMA
+Pruebas, revisión de código, documentación y mejora continua de aplicaciones.
 
-Prototipo frontend de una plataforma universitaria para aulas, bancos de preguntas, evaluaciones demostrativas y práctica matemática.
+</td>
+</tr>
+</table>
 
-- Estado académico tipado, experiencias diferenciadas por rol y componentes accesibles.
-- KaTeX para notación matemática y pruebas E2E con Playwright y axe-core.
-- Importación y publicación simuladas con datos sintéticos.
+## `03.`  Tecnologías y herramientas
 
-**Stack:** React, TypeScript, Vite, Tailwind CSS, KaTeX, Playwright.  
-**Estado:** frontend en desarrollo; no tiene backend, autenticación ni IA implementada.  
-[Repositorio](https://github.com/Shuaibyh/auligma)
+<sub>Herramientas utilizadas en proyectos y prácticas. Su presencia aquí no implica el mismo nivel de dominio en todas.</sub>
 
-## Colaboración técnica
+**INTERFACES & FRONTEND**
 
-### VIII CIISIC UNDC 2026
+![HTML5](https://img.shields.io/badge/HTML5-0B1527?style=for-the-badge&logo=html5&logoColor=white) ![CSS3](https://img.shields.io/badge/CSS3-0B1527?style=for-the-badge&logo=css3&logoColor=white) ![JavaScript](https://img.shields.io/badge/JavaScript-0B1527?style=for-the-badge&logo=javascript&logoColor=white) ![TypeScript](https://img.shields.io/badge/TypeScript-0B1527?style=for-the-badge&logo=typescript&logoColor=white) ![React](https://img.shields.io/badge/React-0B1527?style=for-the-badge&logo=react&logoColor=white) ![Vite](https://img.shields.io/badge/Vite-0B1527?style=for-the-badge&logo=vite&logoColor=white) ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-0B1527?style=for-the-badge&logo=tailwindcss&logoColor=white)
 
-Como integrante del Comité Tecnológico contribuí al módulo del Encuentro de Egresados dentro de la web del congreso:
+**BACKEND & SERVICIOS**
 
-- página informativa, galería y flujo de inscripción mediante Google Forms;
-- estados de disponibilidad y cierre con horario de Lima;
-- afiche oficial responsive con ampliación, descarga y manejo accesible del foco;
-- documentación, pruebas y revisión de privacidad del flujo.
+![Java](https://img.shields.io/badge/Java-0B1527?style=for-the-badge&logo=openjdk&logoColor=white) ![Spring Boot](https://img.shields.io/badge/Spring_Boot-0B1527?style=for-the-badge&logo=springboot&logoColor=white) ![Node.js](https://img.shields.io/badge/Node.js-0B1527?style=for-the-badge&logo=nodedotjs&logoColor=white) ![Express](https://img.shields.io/badge/Express-0B1527?style=for-the-badge&logo=express&logoColor=white) ![Cloudflare Workers](https://img.shields.io/badge/Cloudflare_Workers-0B1527?style=for-the-badge&logo=cloudflareworkers&logoColor=white)
 
-Contribuciones fusionadas: [PR 62](https://github.com/gians96/ciisic-undc-web/pull/62) · [PR 67](https://github.com/gians96/ciisic-undc-web/pull/67)
+**BASES DE DATOS & PERSISTENCIA**
 
-## Estado actual
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-0B1527?style=for-the-badge&logo=postgresql&logoColor=white) ![SQLite](https://img.shields.io/badge/SQLite-0B1527?style=for-the-badge&logo=sqlite&logoColor=white) ![Cloudflare D1](https://img.shields.io/badge/Cloudflare_D1-0B1527?style=for-the-badge&logo=cloudflare&logoColor=white) ![Workers KV](https://img.shields.io/badge/Workers_KV-0B1527?style=for-the-badge&logo=cloudflare&logoColor=white)
 
-- **Publicados:** Mesa de Partes Virtual, Simulador 3D UNDC y Don Emilio Restobar.
-- **En desarrollo:** Academia José Pisconte y AULIGMA.
-- **Colaboración fusionada:** módulo del Encuentro de Egresados del VIII CIISIC.
+**CALIDAD, HERRAMIENTAS & DESPLIEGUE**
 
-## Contacto
+![Git](https://img.shields.io/badge/Git-0B1527?style=for-the-badge&logo=git&logoColor=white) ![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-0B1527?style=for-the-badge&logo=githubactions&logoColor=white) ![Docker](https://img.shields.io/badge/Docker-0B1527?style=for-the-badge&logo=docker&logoColor=white) ![Netlify](https://img.shields.io/badge/Netlify-0B1527?style=for-the-badge&logo=netlify&logoColor=white) ![Playwright](https://img.shields.io/badge/Playwright-0B1527?style=for-the-badge&logo=playwright&logoColor=white) ![Vitest](https://img.shields.io/badge/Vitest-0B1527?style=for-the-badge&logo=vitest&logoColor=white) ![ESLint](https://img.shields.io/badge/ESLint-0B1527?style=for-the-badge&logo=eslint&logoColor=white)
 
-Estoy disponible para oportunidades remotas como Full Stack Developer Junior, Junior Software Developer o Junior Web Developer.
+**VISUALIZACIÓN INTERACTIVA**
 
-Puedes contactarme mediante mi perfil de [GitHub](https://github.com/Shuaibyh). Los datos personales adicionales se comparten de forma privada durante el proceso de selección.
+![Three.js](https://img.shields.io/badge/Three.js-0B1527?style=for-the-badge&logo=threedotjs&logoColor=white) ![WebGL](https://img.shields.io/badge/WebGL-0B1527?style=for-the-badge&logo=webgl&logoColor=white)
+
+<details>
+<summary><b>Profundizando actualmente</b></summary>
+<br />
+
+Seguridad con Spring Security, estrategias de autenticación y autorización, pruebas de integración, observabilidad, arquitectura escalable e integración responsable de IA. **Son áreas en aprendizaje, no especializaciones que afirme dominar.**
+
+</details>
+
+## `04.`  Mi forma de construir software
+
+```text
+  ENTENDER           DISEÑAR           CONSTRUIR           VALIDAR           ENTREGAR
+     01  ──────────►   02   ──────────►    03    ──────────►   04    ──────────►   05
+  Problema           Modelo            Código             Pruebas           Despliegue
+  y contexto         y solución        e integración     y revisión        y evolución
+```
+
+Me importa que una aplicación no solo se vea bien: también debe tener un flujo coherente, una arquitectura entendible y un comportamiento que pueda comprobarse.
+
+## `05.`  Colaboración y crecimiento
+
+- **Trabajo en equipo:** participación en iniciativas tecnológicas universitarias, desarrollo colaborativo y revisión de cambios.
+- **Comunicación y organización:** experiencia en representación estudiantil y coordinación de actividades académicas.
+- **Aprendizaje continuo:** práctica con sistemas web, ingeniería de software, diseño de interfaces, infraestructura y herramientas de IA.
+- **Criterio técnico:** documentación del estado real del software, incluidos sus límites y oportunidades de mejora.
+
+## `06.`  Enfoque actual
+
+<div align="center">
+
+| Ingeniería de software | Calidad y seguridad | Evolución técnica |
+| :---: | :---: | :---: |
+| Arquitectura Full Stack | Autenticación y pruebas | Sistemas escalables e IA responsable |
+
+</div>
+
+Estoy desarrollando mis capacidades para aportar en equipos de **Full Stack Development, Software Development y Web Engineering**, especialmente en oportunidades de nivel **Junior** y modalidad **remota**.
+
+---
+
+<div align="center">
+
+### Explore the work. Understand the thinking.
+
+**El código, la documentación y la evolución técnica están en los repositorios.**
+
+<a href="https://github.com/Shuaibyh?tab=repositories"><img alt="Ver todos los repositorios" src="https://img.shields.io/badge/VER_MI_C%C3%93DIGO-0C727C?style=for-the-badge&logo=github&logoColor=white" /></a>
+<a href="https://github.com/Shuaibyh"><img alt="Perfil GitHub" src="https://img.shields.io/badge/MI_PERFIL-202C44?style=for-the-badge&logo=github&logoColor=white" /></a>
+
+<sub>Brandon Sarmiento · Chincha, Perú · Systems Engineering Student</sub>
+
+</div>

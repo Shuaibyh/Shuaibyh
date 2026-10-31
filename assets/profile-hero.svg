@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1280 420" role="img" aria-labelledby="title desc">
+<title id="title">Brandon Sarmiento — Full Stack Developer</title>
+<desc id="desc">Portada profesional de estilo tecnológico: tipografía moderna, gradientes azul y cian, y detalles de circuitos.</desc>
+<defs>
+ <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#090F20"/><stop offset="0.55" stop-color="#111B31"/><stop offset="1" stop-color="#061624"/></linearGradient>
+ <linearGradient id="acc" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#3BE2D4"/><stop offset="1" stop-color="#64A5FF"/></linearGradient>
+ <radialGradient id="glow"><stop offset="0" stop-color="#1EA8CD" stop-opacity=".26"/><stop offset="1" stop-color="#1EA8CD" stop-opacity="0"/></radialGradient>
+ <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" fill="none" stroke="#9CC5DC" stroke-opacity=".07" stroke-width="1"/></pattern>
+ <filter id="blur"><feGaussianBlur stdDeviation="14"/></filter>
+ <clipPath id="clip"><rect x="0" y="0" width="1280" height="420" rx="20"/></clipPath>
+</defs>
+<g clip-path="url(#clip)">
+<rect x="0" y="0" width="1280" height="420" rx="20" fill="url(#bg)"/>
+<rect x="0" y="0" width="1280" height="420" fill="url(#grid)"/>
+<circle cx="1030" cy="175" r="330" fill="url(#glow)"/>
+<path d="M0 0H1280" stroke="#476784" stroke-opacity=".42" stroke-width="2"/>
+<path d="M0 419H1280" stroke="#476784" stroke-opacity=".45" stroke-width="2"/>
+<rect x="0" y="0" width="8" height="420" fill="url(#acc)"/>
+
+<!-- Network / systems motif -->
+<g fill="none" stroke="url(#acc)" stroke-width="1.9" opacity=".67">
+ <path d="M842 78L912 78L946 112L1055 112L1095 152L1182 152"/>
+ <path d="M840 169L920 169L974 222L1098 222L1160 282L1245 282"/>
+ <path d="M804 293L895 293L928 260L1018 260L1047 291"/>
+ <path d="M1008 46L1038 75L1164 75L1207 117"/>
+ <path d="M1018 336L1094 336L1138 380L1240 380"/>
+ <path d="M1164 75L1164 130L1182 152L1182 205"/>
+</g>
+<g fill="#111D2F" stroke="#72D7E9" stroke-width="2.5">
+ <circle cx="842" cy="78" r="6"/><circle cx="1055" cy="112" r="6"/><circle cx="1182" cy="152" r="6"/>
+ <circle cx="840" cy="169" r="6"/><circle cx="974" cy="222" r="6"/><circle cx="1098" cy="222" r="6"/>
+ <circle cx="895" cy="293" r="6"/><circle cx="1047" cy="291" r="6"/><circle cx="1164" cy="75" r="6"/><circle cx="1018" cy="336" r="6"/><circle cx="1138" cy="380" r="6"/>
+</g>
+<circle cx="1040" cy="208" r="108" fill="#0B1931" fill-opacity=".75" stroke="#54BDD7" stroke-opacity=".20" stroke-width="2"/>
+<circle cx="1040" cy="208" r="84" fill="none" stroke="#B7E5FB" stroke-opacity=".12" stroke-dasharray="6 9" stroke-width="1.5"/>
+<rect x="986" y="157" width="108" height="102" rx="20" fill="#10283C" stroke="#4FD9D6" stroke-opacity=".8" stroke-width="2"/>
+<path d="M1023 190L1004 208L1023 226M1057 190L1076 208L1057 226M1053 179L1028 237" fill="none" stroke="url(#acc)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+
+<!-- Identity -->
+<text x="76" y="70" font-family="Arial,Helvetica,sans-serif" font-weight="700" letter-spacing="3.5" font-size="16" fill="#67E2DB">SOFTWARE ENGINEERING  /  DEVELOPER PROFILE</text>
+<rect x="76" y="96" width="57" height="4" rx="2" fill="url(#acc)"/>
+<text x="72" y="178" font-family="Arial,Helvetica,sans-serif" font-size="59" font-weight="800" letter-spacing="-1.8" fill="#F0F8FF">BRANDON</text>
+<text x="72" y="243" font-family="Arial,Helvetica,sans-serif" font-size="59" font-weight="800" letter-spacing="-1.8" fill="#F0F8FF">SARMIENTO<tspan fill="#5DD6E5">.</tspan></text>
+<text x="76" y="289" font-family="Arial,Helvetica,sans-serif" font-size="28" font-weight="500" fill="#B9D5E5">Full Stack Developer <tspan fill="#74A6B8">/</tspan> Systems Engineering Student</text>
+<rect x="76" y="329" width="153" height="36" rx="18" fill="#123549" stroke="#2B7185" stroke-width="1"/>
+<text x="152" y="351.5" text-anchor="middle" font-size="14" font-family="Arial,Helvetica,sans-serif" letter-spacing="1.1" font-weight="700" fill="#88E8E3">BUILD</text>
+<rect x="240" y="329" width="153" height="36" rx="18" fill="#122840" stroke="#315879" stroke-width="1"/>
+<text x="316" y="351.5" text-anchor="middle" font-size="14" font-family="Arial,Helvetica,sans-serif" letter-spacing="1.1" font-weight="700" fill="#A4CBFF">TEST</text>
+<rect x="404" y="329" width="153" height="36" rx="18" fill="#14243E" stroke="#315879" stroke-width="1"/>
+<text x="480" y="351.5" text-anchor="middle" font-size="14" font-family="Arial,Helvetica,sans-serif" letter-spacing="1.1" font-weight="700" fill="#A4CBFF">DEPLOY</text>
+<text x="76" y="401" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="600" letter-spacing="1.3" fill="#7F9BB2">FRONTEND  •  BACKEND  •  DATA  •  CLOUD  •  CREATIVE DEVELOPMENT</text>
+</g>
+</svg>
