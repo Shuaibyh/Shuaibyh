@@ -139,6 +139,18 @@ Me importa que una aplicación no solo se vea bien: también debe tener un flujo
 
 Estoy desarrollando mis capacidades para aportar en equipos de **Full Stack Development, Software Development y Web Engineering**, especialmente en oportunidades de nivel **Junior** y modalidad **remota**.
 
+
+## `07.`  Proyectos destacados
+
+| Proyecto | Qué encontrarás | Estado |
+| :--- | :--- | :--- |
+| **[AULIGMA](https://github.com/Shuaibyh/auligma)** | Aulas universitarias, evaluaciones versionadas, PostgreSQL e IA local con revisión docente | En desarrollo; sin despliegue productivo |
+| **[Ensamble PC UNDC](https://github.com/Shuaibyh/ensamble-pc-undc)** | Simulador educativo interactivo de ensamblaje 3D | [Ver demo](https://ensamble-pc-undc.netlify.app/) |
+| **[Don Emilio Restobar](https://github.com/Shuaibyh/don-emilio-restobar)** | Web comercial responsive con recursos auténticos y galería accesible | [Ver sitio](https://don-emilio-restobar.netlify.app/) |
+| **[Academia José Pisconte](https://github.com/Shuaibyh/academia-jose-pisconte)** | Prototipo Full Stack de gestión académica con React y Spring Boot | Prototipo, no producción |
+
+**Para explorar con más detalle:** [Portafolio técnico](PORTAFOLIO.md) · [Decisiones de ingeniería](DECISIONES_TECNICAS.md) · [Guía de revisión de proyectos](GUIA_DE_REVISION.md)
+
 ---
 
 <div align="center">
