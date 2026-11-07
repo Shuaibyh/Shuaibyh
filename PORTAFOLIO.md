@@ -11,6 +11,19 @@ Este índice reúne proyectos públicos con su alcance comprobable. Son trabajos
 | [Don Emilio Restobar & Eventos](https://github.com/Shuaibyh/don-emilio-restobar) | Sitio informativo responsive para presentar un establecimiento, su espacio y eventos | React, TypeScript, Vite, Tailwind CSS | [Sitio publicado](https://don-emilio-restobar.netlify.app/) |
 | [Academia José Pisconte](https://github.com/Shuaibyh/academia-jose-pisconte) | Prototipo de gestión académica con frontend, API y base de datos | React, Java 21, Spring Boot, PostgreSQL | En desarrollo; autenticación de demostración |
 
+
+## Estudios de caso
+
+Además de los enlaces al código, preparé tres análisis técnicos para explicar el **problema**, las **decisiones**, la **evidencia de verificación** y los **límites** de cada trabajo:
+
+| Estudio | Tema para profundizar | Evidencia de origen |
+| --- | --- | --- |
+| [AULIGMA — versiones y evaluación](casos/AULIGMA.md) | Identidad, permisos de aula, versiones inmutables y corrección supervisada | [Hito 5](https://github.com/Shuaibyh/auligma/blob/main/docs/FASE_2_4_HITO_5.md) |
+| [Ensamble PC UNDC — experiencia 3D](casos/ENSAMBLE-PC-UNDC.md) | Separación de dominio y escena, activos GLB, fallbacks y aprendizaje interactivo | [Guía de modelos](https://github.com/Shuaibyh/ensamble-pc-undc/blob/main/docs/modelos.md) |
+| [Don Emilio — calidad y contenido](casos/DON-EMILIO.md) | Recursos auténticos, privacidad, responsive, accesibilidad y publicación estática | [QA V8](https://github.com/Shuaibyh/don-emilio-restobar/blob/main/docs/QA.md) |
+
+Estos textos interpretan decisiones documentadas; **no suponen código nuevo, nuevas pruebas ni despliegues**.
+
 ## Qué revisar en cada repositorio
 
 ### AULIGMA — arquitectura y reglas académicas
