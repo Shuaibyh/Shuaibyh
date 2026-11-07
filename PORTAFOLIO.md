@@ -14,13 +14,14 @@ Este índice reúne proyectos públicos con su alcance comprobable. Son trabajos
 
 ## Estudios de caso
 
-Además de los enlaces al código, preparé tres análisis técnicos para explicar el **problema**, las **decisiones**, la **evidencia de verificación** y los **límites** de cada trabajo:
+Además de los enlaces al código, preparé cuatro análisis técnicos para explicar el **problema**, las **decisiones**, la **evidencia de verificación** y los **límites** de cada trabajo:
 
 | Estudio | Tema para profundizar | Evidencia de origen |
 | --- | --- | --- |
 | [AULIGMA — versiones y evaluación](casos/AULIGMA.md) | Identidad, permisos de aula, versiones inmutables y corrección supervisada | [Hito 5](https://github.com/Shuaibyh/auligma/blob/main/docs/FASE_2_4_HITO_5.md) |
 | [Ensamble PC UNDC — experiencia 3D](casos/ENSAMBLE-PC-UNDC.md) | Separación de dominio y escena, activos GLB, fallbacks y aprendizaje interactivo | [Guía de modelos](https://github.com/Shuaibyh/ensamble-pc-undc/blob/main/docs/modelos.md) |
 | [Don Emilio — calidad y contenido](casos/DON-EMILIO.md) | Recursos auténticos, privacidad, responsive, accesibilidad y publicación estática | [QA V8](https://github.com/Shuaibyh/don-emilio-restobar/blob/main/docs/QA.md) |
+| [Academia José Pisconte — prototipo Full Stack](casos/ACADEMIA-JOSE-PISCONTE.md) | Separación React/Spring Boot, persistencia, seguridad pendiente y evolución planificada | [Roadmap](https://github.com/Shuaibyh/academia-jose-pisconte/blob/main/ROADMAP.md) |
 
 Estos textos interpretan decisiones documentadas; **no suponen código nuevo, nuevas pruebas ni despliegues**.
 
@@ -71,4 +72,4 @@ Estos textos interpretan decisiones documentadas; **no suponen código nuevo, nu
 4. No publicar credenciales, datos institucionales, datos de estudiantes ni materiales privados.
 5. Documentar aprendizajes y límites técnicos con la misma claridad que las funcionalidades.
 
-[Volver al perfil](README.md) · [Todos los repositorios](https://github.com/Shuaibyh?tab=repositories)
+[Ver matriz de habilidades y evidencias](MATRIZ_DE_HABILIDADES.md) · [Volver al perfil](README.md) · [Todos los repositorios](https://github.com/Shuaibyh?tab=repositories)
