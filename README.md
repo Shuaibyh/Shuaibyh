@@ -151,6 +151,18 @@ Estoy desarrollando mis capacidades para aportar en equipos de **Full Stack Deve
 
 **Para explorar con más detalle:** [Portafolio técnico](PORTAFOLIO.md) · [Decisiones de ingeniería](DECISIONES_TECNICAS.md) · [Guía de revisión de proyectos](GUIA_DE_REVISION.md)
 
+
+## `08.`  Calidad y mantenimiento del portafolio
+
+Además de los enlaces a los proyectos, el repositorio incluye documentación para **comprobar y mantener** su contenido:
+
+- [Matriz de habilidades](MATRIZ_DE_HABILIDADES.md): tecnologías relacionadas con evidencia pública.
+- [Estudios de caso](PORTAFOLIO.md): problemas, decisiones técnicas y límites de los proyectos.
+- [Guía para revisar proyectos](GUIA_DE_REVISION.md): comandos y precauciones para una inspección reproducible.
+- [Guía de contribución](CONTRIBUTING.md): criterios de veracidad, privacidad y revisión editorial.
+
+Los enlaces locales del perfil se pueden validar con `node scripts/check-markdown-links.mjs` y sus pruebas con `node --test scripts/check-markdown-links.test.mjs`. [GitHub Actions](.github/workflows/docs-check.yml) automatiza estas comprobaciones ante cambios relevantes. Los enlaces externos y las anclas no se verifican con esta herramienta.
+
 ---
 
 <div align="center">
