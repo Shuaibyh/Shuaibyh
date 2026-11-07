@@ -1,0 +1,32 @@
+name: Portfolio documentation checks
+
+on:
+  push:
+    paths:
+      - '**/*.md'
+      - 'scripts/check-markdown-links.mjs'
+      - 'scripts/check-markdown-links.test.mjs'
+      - '.github/workflows/docs-check.yml'
+  pull_request:
+    paths:
+      - '**/*.md'
+      - 'scripts/check-markdown-links.mjs'
+      - 'scripts/check-markdown-links.test.mjs'
+      - '.github/workflows/docs-check.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  validate-docs:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Test the link checker
+        run: node --test scripts/check-markdown-links.test.mjs
+      - name: Validate local Markdown links
+        run: node scripts/check-markdown-links.mjs
