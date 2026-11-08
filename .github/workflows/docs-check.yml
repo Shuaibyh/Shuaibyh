@@ -4,14 +4,22 @@ on:
   push:
     paths:
       - '**/*.md'
+      - 'data/**/*.json'
+      - 'package.json'
       - 'scripts/check-markdown-links.mjs'
       - 'scripts/check-markdown-links.test.mjs'
+      - 'scripts/check-project-catalog.mjs'
+      - 'scripts/check-project-catalog.test.mjs'
       - '.github/workflows/docs-check.yml'
   pull_request:
     paths:
       - '**/*.md'
+      - 'data/**/*.json'
+      - 'package.json'
       - 'scripts/check-markdown-links.mjs'
       - 'scripts/check-markdown-links.test.mjs'
+      - 'scripts/check-project-catalog.mjs'
+      - 'scripts/check-project-catalog.test.mjs'
       - '.github/workflows/docs-check.yml'
 
 permissions:
@@ -26,7 +34,5 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
-      - name: Test the link checker
-        run: node --test scripts/check-markdown-links.test.mjs
-      - name: Validate local Markdown links
-        run: node scripts/check-markdown-links.mjs
+      - name: Test documentation and catalog
+        run: npm run check
