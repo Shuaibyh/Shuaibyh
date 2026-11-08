@@ -25,6 +25,18 @@ El control **no verifica** que una URL externa responda, ni que un ancla `#secci
 
 Un enlace local como `[Documento](PORTAFOLIO.md)` debe referirse a un archivo presente. Los enlaces a otros repositorios deben conservar su URL real, sin inventar demostraciones ni releases.
 
+## Catálogo de proyectos y validación unificada
+
+El índice de proyectos tiene una representación estructurada en [`data/projects.json`](data/projects.json). Si se incorpora o cambia un proyecto, revisar simultáneamente el catálogo, [`PORTAFOLIO.md`](PORTAFOLIO.md) y su estudio de caso. No marcar una aplicación como pública o productiva a partir de una intención de desarrollo.
+
+Para ejecutar todas las pruebas y validaciones, desde la raíz con Node.js 22+:
+
+```bash
+npm run check
+```
+
+También están disponibles `npm run test`, `npm run check:links` y `npm run check:catalog`. No requieren instalar dependencias externas. El validador comprueba formato de URLs, campos y estudios locales; **no comprueba que los enlaces remotos estén disponibles**. Véase la [guía del catálogo](docs/CATALOGO.md) para las reglas de estados y evidencia.
+
 ## Revisión de un cambio
 
 Antes de fusionarlo:
@@ -46,7 +58,7 @@ Antes de fusionarlo:
 
 ## Automatización
 
-[GitHub Actions](.github/workflows/docs-check.yml) ejecuta las pruebas del verificador y revisa los enlaces locales cuando cambian documentos o el propio checker. La automatización no hace deploys, no modifica otros repositorios y no envía datos a servicios externos.
+[GitHub Actions](.github/workflows/docs-check.yml) ejecuta las pruebas de los verificadores y comprueba enlaces y datos del catálogo cuando cambian archivos pertinentes. La automatización no hace deploys, no modifica otros repositorios y no envía datos a servicios externos.
 
 ## Organización
 
@@ -56,6 +68,8 @@ Antes de fusionarlo:
 - [DECISIONES_TECNICAS.md](DECISIONES_TECNICAS.md): decisiones de arquitectura.
 - [GUIA_DE_REVISION.md](GUIA_DE_REVISION.md): pasos de inspección de proyectos.
 - [casos/](casos/): análisis por proyecto.
+- [data/projects.json](data/projects.json): catálogo de proyectos verificables.
+- [docs/CATALOGO.md](docs/CATALOGO.md): definiciones de estado y mantenimiento del catálogo.
 - [scripts/](scripts/): verificador y sus pruebas.
 
 [Volver al perfil](README.md)
