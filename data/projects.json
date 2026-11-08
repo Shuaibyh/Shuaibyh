@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "note": "Catálogo descriptivo del portafolio público. Los estados indican alcance visible, no preparación para producción.",
+  "projects": [
+    {
+      "id": "auligma",
+      "name": "AULIGMA",
+      "repository": "https://github.com/Shuaibyh/auligma",
+      "status": "developing",
+      "summary": "Plataforma educativa de matemáticas con aulas, evaluaciones versionadas y revisión docente.",
+      "technologies": [
+        "React",
+        "TypeScript",
+        "Fastify",
+        "PostgreSQL",
+        "Ollama",
+        "SymPy"
+      ],
+      "demo": null,
+      "case_study": "casos/AULIGMA.md",
+      "evidence": [
+        "https://github.com/Shuaibyh/auligma/blob/main/docs/FASE_2_4_HITO_5.md"
+      ]
+    },
+    {
+      "id": "ensamble-pc-undc",
+      "name": "Ensamble PC UNDC",
+      "repository": "https://github.com/Shuaibyh/ensamble-pc-undc",
+      "status": "public-demo",
+      "summary": "Simulador 3D didáctico de ensamblaje de equipos en navegador.",
+      "technologies": [
+        "React",
+        "TypeScript",
+        "Three.js",
+        "React Three Fiber"
+      ],
+      "demo": "https://ensamble-pc-undc.netlify.app/",
+      "case_study": "casos/ENSAMBLE-PC-UNDC.md",
+      "evidence": [
+        "https://github.com/Shuaibyh/ensamble-pc-undc/blob/main/README.md"
+      ]
+    },
+    {
+      "id": "don-emilio-restobar",
+      "name": "Don Emilio Restobar & Eventos",
+      "repository": "https://github.com/Shuaibyh/don-emilio-restobar",
+      "status": "public-demo",
+      "summary": "Sitio informativo responsive con fotografías auténticas y galería accesible.",
+      "technologies": [
+        "React",
+        "TypeScript",
+        "Vite",
+        "Tailwind CSS"
+      ],
+      "demo": "https://don-emilio-restobar.netlify.app/",
+      "case_study": "casos/DON-EMILIO.md",
+      "evidence": [
+        "https://github.com/Shuaibyh/don-emilio-restobar/blob/main/docs/QA.md"
+      ]
+    },
+    {
+      "id": "academia-jose-pisconte",
+      "name": "Academia José Pisconte",
+      "repository": "https://github.com/Shuaibyh/academia-jose-pisconte",
+      "status": "prototype",
+      "summary": "Prototipo Full Stack de gestión académica con API y base de datos.",
+      "technologies": [
+        "React",
+        "Java",
+        "Spring Boot",
+        "PostgreSQL"
+      ],
+      "demo": null,
+      "case_study": "casos/ACADEMIA-JOSE-PISCONTE.md",
+      "evidence": [
+        "https://github.com/Shuaibyh/academia-jose-pisconte/blob/main/ROADMAP.md"
+      ]
+    }
+  ]
+}
