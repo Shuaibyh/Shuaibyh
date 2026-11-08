@@ -15,13 +15,15 @@ Este repositorio contiene la presentación pública de mis proyectos, sus estudi
 Se requiere Node.js 22 o superior para ejecutar las herramientas del repositorio. No hay dependencias npm.
 
 ```bash
-node --test scripts/check-markdown-links.test.mjs
-node scripts/check-markdown-links.mjs
+npm run test
+npm run check:links
+npm run check:anchors
+npm run check:catalog
 ```
 
 La primera orden ejecuta pruebas automáticas sobre casos sintéticos; la segunda recorre los archivos Markdown del repositorio y comprueba que los destinos de los **enlaces relativos** y recursos HTML locales existan.
 
-El control **no verifica** que una URL externa responda, ni que un ancla `#seccion` exista. No debe presentarse como auditoría completa de accesibilidad o seguridad.
+Además de comprobar que existan los archivos enlazados, `npm run check:anchors` revisa que los fragmentos `#seccion` de enlaces Markdown locales correspondan a encabezados o identificadores HTML. Considera encabezados repetidos, títulos con tildes y fragmentos codificados. Es una comprobación estática aproximada del formato de anclas de GitHub, no un renderizador Markdown completo. **No comprueba** disponibilidad de URLs externas, anclas externas ni enlaces de referencia indirectos; tampoco sustituye una auditoría de accesibilidad o seguridad.
 
 Un enlace local como `[Documento](PORTAFOLIO.md)` debe referirse a un archivo presente. Los enlaces a otros repositorios deben conservar su URL real, sin inventar demostraciones ni releases.
 
@@ -45,8 +47,9 @@ Antes de fusionarlo:
 2. Relacionar afirmaciones técnicas con documentos, commits o código verificables.
 3. Asegurar que las rutas relativas sigan funcionando después de mover archivos.
 4. Ejecutar las dos comprobaciones anteriores y atender los errores.
-5. Revisar cómo se muestra el README en GitHub, tanto en pantalla pequeña como grande.
-6. Si una prueba no se ha ejecutado, indicarlo; no afirmar un PASS por haber escrito la prueba.
+5. Comprobar que las anclas Markdown continúan funcionando si se renombra algún título.
+6. Revisar cómo se muestra el README en GitHub, tanto en pantalla pequeña como grande.
+7. Si una prueba no se ha ejecutado, indicarlo; no afirmar un PASS por haber escrito la prueba.
 
 ## Estándares de redacción
 
