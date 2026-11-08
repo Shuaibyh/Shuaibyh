@@ -1,0 +1,16 @@
+{
+  "name": "shuaibyh-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Herramientas de validación para el portafolio público; sin dependencias externas.",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test scripts/*.test.mjs",
+    "check:links": "node scripts/check-markdown-links.mjs",
+    "check:catalog": "node scripts/check-project-catalog.mjs",
+    "check": "npm run test && npm run check:links && npm run check:catalog"
+  }
+}
