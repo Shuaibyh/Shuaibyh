@@ -161,7 +161,9 @@ Además de los enlaces a los proyectos, el repositorio incluye documentación pa
 - [Guía para revisar proyectos](GUIA_DE_REVISION.md): comandos y precauciones para una inspección reproducible.
 - [Guía de contribución](CONTRIBUTING.md): criterios de veracidad, privacidad y revisión editorial.
 
-Los enlaces locales del perfil se pueden validar con `node scripts/check-markdown-links.mjs` y sus pruebas con `node --test scripts/check-markdown-links.test.mjs`. [GitHub Actions](.github/workflows/docs-check.yml) automatiza estas comprobaciones ante cambios relevantes. Los enlaces externos y las anclas no se verifican con esta herramienta.
+El inventario estructurado de proyectos está en [`data/projects.json`](data/projects.json), con [una guía de estados y evidencia](docs/CATALOGO.md). Los estados diferencian prototipos, desarrollo y demostraciones públicas sin sugerir que una demo esté lista para producción.
+
+Para comprobar el portafolio se utiliza `npm run check` (Node.js 22+ y sin dependencias externas): ejecuta pruebas automatizadas, revisión de enlaces locales y validación del catálogo. [GitHub Actions](.github/workflows/docs-check.yml) ejecuta el mismo conjunto de controles al actualizar archivos pertinentes. La validación es estática: no verifica enlaces externos ni anclas de sección.
 
 ---
 
