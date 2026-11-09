@@ -11,7 +11,10 @@
     "test": "node --test scripts/*.test.mjs",
     "check:links": "node scripts/check-markdown-links.mjs",
     "check:catalog": "node scripts/check-project-catalog.mjs",
-    "check": "npm run test && npm run check:links && npm run check:anchors && npm run check:catalog",
-    "check:anchors": "node scripts/check-markdown-anchors.mjs"
+    "check": "npm run test && npm run check:links && npm run check:anchors && npm run check:catalog && npm run check:sync && npm run check:images && npm run check:secrets",
+    "check:anchors": "node scripts/check-markdown-anchors.mjs",
+    "check:sync": "node scripts/check-portfolio-sync.mjs",
+    "check:images": "node scripts/check-markdown-images.mjs",
+    "check:secrets": "node scripts/check-public-secrets.mjs"
   }
 }
