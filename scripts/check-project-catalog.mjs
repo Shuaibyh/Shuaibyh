@@ -29,6 +29,7 @@ export function validateCatalog(data) {
 
   const seenIds = new Set();
   const seenRepos = new Set();
+  const seenCases = new Set();
   for (const [index, project] of data.projects.entries()) {
     const prefix = `projects[${index}]`;
     if (!project || typeof project !== 'object' || Array.isArray(project)) {
@@ -67,6 +68,10 @@ export function validateCatalog(data) {
     if (typeof project.case_study !== 'string' ||
       !/^casos\/[A-Za-z0-9-]+\.md$/.test(project.case_study)) {
       issues.push(`${prefix}.case_study debe apuntar a casos/*.md sin rutas ascendentes.`);
+    } else if (seenCases.has(project.case_study)) {
+      issues.push(`${prefix}.case_study está duplicado.`);
+    } else {
+      seenCases.add(project.case_study);
     }
 
     if (!Array.isArray(project.technologies) || project.technologies.length === 0 ||
@@ -78,7 +83,7 @@ export function validateCatalog(data) {
 
     if (!Array.isArray(project.evidence) || project.evidence.length === 0 ||
       project.evidence.some(url => !isHttpsUrl(url, 'github.com') ||
-        !url.startsWith('https://github.com/Shuaibyh/'))) {
+        !url.startsWith((typeof project.repository === 'string' ? project.repository.replace(/\/$/, '') : '') + '/'))) {
       issues.push(`${prefix}.evidence requiere enlaces HTTPS de GitHub verificables manualmente.`);
     }
   }
