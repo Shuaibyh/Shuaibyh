@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { readdir, readFile, stat } from 'node:fs/promises';
+import { readdir, readFile, realpath, stat } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -66,6 +66,7 @@ function resolveLocalTarget(origin, target) {
 
 async function main() {
   const markdownFiles = await collectMarkdown(projectRoot);
+  const realRoot = await realpath(projectRoot);
   const errors = [];
   let checked = 0;
   for (const file of markdownFiles) {
@@ -80,6 +81,11 @@ async function main() {
       }
       try {
         await stat(destination.full);
+        const actual = await realpath(destination.full);
+        const relative = path.relative(realRoot, actual);
+        if (relative === '..' || relative.startsWith(`..${path.sep}`) || path.isAbsolute(relative)) {
+          errors.push(`${path.relative(projectRoot, file)}:${line}: enlace simbólico fuera del repositorio: ${target}`);
+        }
       } catch {
         errors.push(`${path.relative(projectRoot, file)}:${line}: enlace local inexistente: ${target}`);
       }
