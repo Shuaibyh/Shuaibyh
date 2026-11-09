@@ -1,0 +1,33 @@
+name: Mejorar documentación
+description: Proponer una corrección verificable de contenido o referencias.
+title: "docs: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Separa siempre las funcionalidades implementadas de las planificadas.
+        No publiques información privada ni materiales de terceros sin autorización.
+  - type: input
+    id: document
+    attributes:
+      label: Archivo o sección afectada
+      placeholder: PORTAFOLIO.md
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Información a corregir
+      description: Explica qué resulta confuso, incorrecto o desactualizado.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidencia pública
+      description: Enlaces a README, código, pruebas o documentación del proyecto.
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Propuesta de mejora
+      description: Redacción o cambio concreto, evitando afirmaciones no verificadas.
