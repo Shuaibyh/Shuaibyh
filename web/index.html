@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Portafolio técnico de Brandon Sarmiento: proyectos de software, experiencias 3D y herramientas académicas.">
+  <title>Portafolio técnico | Brandon Sarmiento</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script type="module" src="./app.mjs"></script>
+</head>
+<body>
+  <a class="skip-link" href="#proyectos">Saltar a los proyectos</a>
+  <header class="masthead">
+    <div class="container">
+      <p class="eyebrow">Ingeniería de sistemas · Desarrollo Full Stack</p>
+      <h1>Construyo soluciones digitales con criterio y evidencia.</h1>
+      <p class="lead">Una selección de proyectos de aprendizaje y desarrollo. Cada trabajo indica su estado real, sus decisiones y sus límites.</p>
+      <div class="header-links">
+        <a class="primary-link" href="https://github.com/Shuaibyh" rel="noopener noreferrer">Mi perfil en GitHub</a>
+        <a href="../PORTAFOLIO.md">Ver el índice técnico</a>
+      </div>
+    </div>
+  </header>
+  <main id="proyectos" class="container" tabindex="-1">
+    <section aria-labelledby="catalog-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Trabajo público</p>
+          <h2 id="catalog-title">Proyectos seleccionados</h2>
+        </div>
+        <p id="count" aria-live="polite" class="project-count">Cargando catálogo…</p>
+      </div>
+      <div class="filters" role="search" aria-label="Filtrar proyectos">
+        <div class="field">
+          <label for="query">Buscar por proyecto o tecnología</label>
+          <input id="query" type="search" placeholder="Ej. React, AULIGMA, 3D" autocomplete="off">
+        </div>
+        <div class="field">
+          <label for="status">Estado del proyecto</label>
+          <select id="status">
+            <option value="all">Todos</option>
+            <option value="public-demo">Con demostración pública</option>
+            <option value="developing">En desarrollo</option>
+            <option value="prototype">Prototipo</option>
+          </select>
+        </div>
+        <button id="reset" type="button">Limpiar filtros</button>
+      </div>
+      <div id="catalog" class="project-grid" aria-live="off"></div>
+      <p id="empty" class="empty" hidden>No se encontraron proyectos para esos filtros.</p>
+      <p id="error" class="error" role="alert" hidden>No se pudo leer el catálogo. Abre esta carpeta desde un servidor local y comprueba la ruta del archivo JSON.</p>
+    </section>
+  </main>
+  <footer class="container footer">
+    <p>Las demos no equivalen a sistemas listos para producción. Las funcionalidades pendientes se identifican en cada repositorio.</p>
+    <a href="../docs/CALIDAD.md">Cómo se verifica este portafolio</a>
+  </footer>
+</body>
+</html>
