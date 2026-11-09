@@ -99,3 +99,22 @@ test('comprueba que el estudio de caso existe en disco', async () => {
     await rm(dir, { recursive: true, force: true });
   }
 });
+
+test('rechaza casos de estudio compartidos sin querer entre proyectos distintos', () => {
+  const findings = errorsAfter(d => {
+    d.projects.push({
+      ...d.projects[0],
+      id: 'segundo',
+      repository: 'https://github.com/Shuaibyh/segundo',
+      evidence: ['https://github.com/Shuaibyh/segundo/blob/main/README.md'],
+    });
+  });
+  assert.match(findings.join(' '), /case_study está duplicado/);
+});
+
+test('impide que la evidencia apunte por error a otro repositorio', () => {
+  const findings = errorsAfter(d => {
+    d.projects[0].evidence = ['https://github.com/Shuaibyh/otro-proyecto/blob/main/README.md'];
+  });
+  assert.match(findings.join(' '), /evidence/);
+});
