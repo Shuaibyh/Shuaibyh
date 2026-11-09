@@ -176,6 +176,31 @@ Para comprobar el portafolio se utiliza `npm run check` (Node.js 22+ y sin depen
 
 **Documentación técnica:** [Alcance de los controles](docs/CALIDAD.md) · [Guía del catálogo](docs/CATALOGO.md) · [Guía de contribución](CONTRIBUTING.md).
 
+
+## `09.`  Vista web y exportaciones de proyectos
+
+Este perfil también tiene una **vista web estática para revisar localmente** el catálogo, con tarjetas, búsqueda sin distinción de tildes, filtros por estado, diseño adaptable y navegación por teclado. La vista no está desplegada públicamente y no recopila información de visitantes.
+
+```bash
+npm run preview
+```
+
+Abre `http://127.0.0.1:4173/` después de iniciar el servidor local. [Guía de la vista web](web/README.md).
+
+El mismo catálogo puede exportarse a formatos reutilizables sin instalar dependencias ni contactar servicios externos:
+
+```bash
+npm run export:csv
+npm run export:md
+npm run export:json
+npm run stats
+```
+
+Las exportaciones imprimen en la terminal y no escriben archivos automáticamente. El verificador `npm run check` incluye las pruebas del código, controles de contenido y una revisión básica de la estructura de la vista web.
+
+**Más contexto:** [Arquitectura del portafolio](docs/ARQUITECTURA_PORTAFOLIO.md) · [Exportaciones](docs/EXPORTACIONES.md) · [Seguridad y privacidad](docs/SEGURIDAD_PORTAFOLIO.md).
+
+
 ---
 
 <div align="center">
