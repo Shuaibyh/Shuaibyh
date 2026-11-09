@@ -1,42 +1,34 @@
-name: Portfolio documentation checks
+name: Portfolio quality checks
 
 on:
   push:
     paths:
       - '**/*.md'
       - 'data/**/*.json'
+      - 'scripts/**/*.mjs'
       - 'package.json'
-      - 'scripts/check-markdown-links.mjs'
-      - 'scripts/check-markdown-links.test.mjs'
-      - 'scripts/check-markdown-anchors.mjs'
-      - 'scripts/check-markdown-anchors.test.mjs'
-      - 'scripts/check-project-catalog.mjs'
-      - 'scripts/check-project-catalog.test.mjs'
       - '.github/workflows/docs-check.yml'
   pull_request:
     paths:
       - '**/*.md'
       - 'data/**/*.json'
+      - 'scripts/**/*.mjs'
       - 'package.json'
-      - 'scripts/check-markdown-links.mjs'
-      - 'scripts/check-markdown-links.test.mjs'
-      - 'scripts/check-markdown-anchors.mjs'
-      - 'scripts/check-markdown-anchors.test.mjs'
-      - 'scripts/check-project-catalog.mjs'
-      - 'scripts/check-project-catalog.test.mjs'
       - '.github/workflows/docs-check.yml'
+  workflow_dispatch:
 
 permissions:
   contents: read
 
 jobs:
-  validate-docs:
+  validate-portfolio:
+    name: Test, links, anchors, catalog and safety
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 7
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
-      - name: Test documentation and catalog
+      - name: Test and validate the portfolio
         run: npm run check
