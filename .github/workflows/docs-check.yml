@@ -6,6 +6,7 @@ on:
       - '**/*.md'
       - 'data/**/*.json'
       - 'scripts/**/*.mjs'
+      - 'web/**'
       - 'package.json'
       - '.github/workflows/docs-check.yml'
   pull_request:
@@ -13,6 +14,7 @@ on:
       - '**/*.md'
       - 'data/**/*.json'
       - 'scripts/**/*.mjs'
+      - 'web/**'
       - 'package.json'
       - '.github/workflows/docs-check.yml'
   workflow_dispatch:
@@ -22,13 +24,18 @@ permissions:
 
 jobs:
   validate-portfolio:
-    name: Test, links, anchors, catalog and safety
+    name: Tests, static documentation checks and web structure
     runs-on: ubuntu-latest
-    timeout-minutes: 7
+    timeout-minutes: 8
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
-      - name: Test and validate the portfolio
+      - name: Check browser module syntax
+        run: |
+          node --check web/app.mjs
+          node --check web/project-search.mjs
+          node --check web/project-view.mjs
+      - name: Test and validate portfolio
         run: npm run check
