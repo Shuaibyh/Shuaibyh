@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { spawnSync } from 'node:child_process';
-import { mkdtempSync, mkdirSync, rmSync, writeFileSync } from 'node:fs';
+import { mkdtempSync, mkdirSync, rmSync, symlinkSync, writeFileSync } from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -65,3 +65,20 @@ test('rechaza URL percent-encoding malformado', () => fixture((root) => {
   assert.equal(result.status, 1);
   assert.match(result.stderr, /percent-encoding inválido/);
 }));
+
+test('impide enlaces simbólicos que permiten salir del repositorio', () => {
+  if (process.platform === 'win32') return; // Permisos de symlink varían en Windows.
+  const external = mkdtempSync(path.join(os.tmpdir(), 'outside-portfolio-'));
+  try {
+    writeFileSync(path.join(external, 'privado.md'), '# Archivo fuera del repo');
+    fixture((root) => {
+      symlinkSync(path.join(external, 'privado.md'), path.join(root, 'puente.md'));
+      writeFileSync(path.join(root, 'README.md'), '[Externo](puente.md)');
+      const result = check(root);
+      assert.equal(result.status, 1);
+      assert.match(result.stderr, /enlace simbólico fuera del repositorio/);
+    });
+  } finally {
+    rmSync(external, { recursive: true, force: true });
+  }
+});
