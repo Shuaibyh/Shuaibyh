@@ -1,0 +1,56 @@
+name: Reportar error del portafolio
+description: Informar un error reproducible en la vista o los verificadores.
+title: "bug: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Describe errores del **portafolio de perfil**, no de las aplicaciones enlazadas.
+        No compartas contraseñas, tokens ni datos personales en este formulario.
+  - type: dropdown
+    id: area
+    attributes:
+      label: Área afectada
+      options:
+        - Vista web local
+        - Catálogo de proyectos
+        - Exportadores y estadísticas
+        - Enlaces y documentación
+        - Acciones de GitHub
+        - Otro
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Pasos para reproducir
+      description: Incluye comandos sin credenciales y datos sintéticos.
+      placeholder: |
+        1. Ejecutar npm run check
+        2. Observar el error en...
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Resultado observado
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Resultado esperado
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Entorno
+      description: Sistema operativo y versión de Node.js, si corresponde.
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Protección de datos
+      options:
+        - label: Confirmo que no incluyo datos personales ni credenciales.
+          required: true
