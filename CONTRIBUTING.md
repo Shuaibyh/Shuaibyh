@@ -37,7 +37,7 @@ Para ejecutar todas las pruebas y validaciones, desde la raíz con Node.js 22+:
 npm run check
 ```
 
-También están disponibles `npm run test`, `npm run check:links` y `npm run check:catalog`. No requieren instalar dependencias externas. El validador comprueba formato de URLs, campos y estudios locales; **no comprueba que los enlaces remotos estén disponibles**. Véase la [guía del catálogo](docs/CATALOGO.md) para las reglas de estados y evidencia.
+También están disponibles los controles individuales `npm run test`, `npm run check:links`, `npm run check:anchors`, `npm run check:catalog`, `npm run check:sync`, `npm run check:images` y `npm run check:secrets`. No requieren instalar dependencias externas. El validador comprueba formato de URLs, campos y estudios locales; **no comprueba que los enlaces remotos estén disponibles**. Véase la [guía del catálogo](docs/CATALOGO.md) para las reglas de estados y evidencia.
 
 ## Revisión de un cambio
 
@@ -46,7 +46,7 @@ Antes de fusionarlo:
 1. Comprobar que el texto distingue **implementado**, **en desarrollo** y **planeado**.
 2. Relacionar afirmaciones técnicas con documentos, commits o código verificables.
 3. Asegurar que las rutas relativas sigan funcionando después de mover archivos.
-4. Ejecutar las dos comprobaciones anteriores y atender los errores.
+4. Ejecutar `npm run check` y atender los errores de pruebas, enlaces, catálogo, imágenes y documentación.
 5. Comprobar que las anclas Markdown continúan funcionando si se renombra algún título.
 6. Revisar cómo se muestra el README en GitHub, tanto en pantalla pequeña como grande.
 7. Si una prueba no se ha ejecutado, indicarlo; no afirmar un PASS por haber escrito la prueba.
@@ -58,6 +58,16 @@ Antes de fusionarlo:
 - Evitar prometer capacidades de producción a partir de prototipos o demos locales.
 - No atribuir contratos comerciales, certificaciones o experiencias laborales no demostradas.
 - Conservar derechos, créditos y límites de uso de materiales de terceros.
+
+## Revisión de calidad ampliada
+
+Antes de publicar cambios en el portafolio, ejecutar `npm run check`. Además de las comprobaciones anteriores, ahora hay tres controles nuevos:
+
+- **Sincronización:** `npm run check:sync` compara el catálogo con las tablas de proyectos y casos del portafolio.
+- **Accesibilidad editorial:** `npm run check:images` detecta imágenes sin descripción alternativa básica.
+- **Exposición accidental:** `npm run check:secrets` identifica ciertos patrones de credenciales sin imprimir su valor.
+
+La [guía de calidad](docs/CALIDAD.md) explica resultados, límites y acciones ante problemas. Los controles son estáticos: no evalúan la seguridad de los otros repositorios ni sustituyen el criterio humano. Si un token verdadero aparece en el historial de Git, debe revocarse y rotarse; corregir únicamente el archivo actual no elimina su exposición anterior.
 
 ## Automatización
 
@@ -73,6 +83,7 @@ Antes de fusionarlo:
 - [casos/](casos/): análisis por proyecto.
 - [data/projects.json](data/projects.json): catálogo de proyectos verificables.
 - [docs/CATALOGO.md](docs/CATALOGO.md): definiciones de estado y mantenimiento del catálogo.
+- [docs/CALIDAD.md](docs/CALIDAD.md): alcance y límites de las comprobaciones automáticas.
 - [scripts/](scripts/): verificador y sus pruebas.
 
 [Volver al perfil](README.md)
