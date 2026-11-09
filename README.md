@@ -163,7 +163,18 @@ Además de los enlaces a los proyectos, el repositorio incluye documentación pa
 
 El inventario estructurado de proyectos está en [`data/projects.json`](data/projects.json), con [una guía de estados y evidencia](docs/CATALOGO.md). Los estados diferencian prototipos, desarrollo y demostraciones públicas sin sugerir que una demo esté lista para producción.
 
-Para comprobar el portafolio se utiliza `npm run check` (Node.js 22+ y sin dependencias externas): ejecuta pruebas automatizadas, revisión de enlaces locales y validación del catálogo. [GitHub Actions](.github/workflows/docs-check.yml) ejecuta el mismo conjunto de controles al actualizar archivos pertinentes. La validación es estática: no verifica enlaces externos ni anclas de sección.
+Para comprobar el portafolio se utiliza `npm run check` (Node.js 22+ y sin dependencias externas). Ejecuta pruebas automatizadas y revisa:
+
+| Comprobación | Propósito |
+| --- | --- |
+| Enlaces y secciones | Identificar rutas relativas y anclas Markdown rotas |
+| Catálogo y portafolio | Detectar inconsistencias entre proyectos, fichas y estudios de caso |
+| Imágenes | Comprobar texto alternativo básico para accesibilidad |
+| Documentos públicos | Señalar algunos patrones de credenciales por error |
+
+[GitHub Actions](.github/workflows/docs-check.yml) ejecuta las mismas comprobaciones cuando cambian archivos pertinentes. El proceso es **estático y limitado**: no confirma enlaces externos, no inspecciona visualmente las imágenes, no garantiza encontrar todos los secretos y no evalúa la seguridad de las aplicaciones enlazadas.
+
+**Documentación técnica:** [Alcance de los controles](docs/CALIDAD.md) · [Guía del catálogo](docs/CATALOGO.md) · [Guía de contribución](CONTRIBUTING.md).
 
 ---
 
