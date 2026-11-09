@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { filterProjects, normalizeQuery, statusLabel } from './project-search.mjs';
+import { filterProjects, normalizeQuery, statusLabel } from '../web/project-search.mjs';
 
 const projects = [
   { name: 'AULIGMA', summary: 'Matemática con docentes', status: 'developing', technologies: ['React', 'SymPy'] },
