@@ -10,7 +10,7 @@ test('convierte filtros en URLs y permite recuperarlos', () => {
   assert.match(location, /q=Matem/);
   assert.ok(location.endsWith('#proyectos'));
   assert.deepEqual(parseFilterUrl(location.split('?')[1].split('#')[0]), {
-    query: 'Matemáticas', status: 'developing', sort: 'name-asc', technology:'React',
+    query: 'Matemáticas', status: 'developing', sort: 'name-asc', technology:'react',
   });
 });
 test('ignora valores no admitidos y conserva otros parámetros', () => {
