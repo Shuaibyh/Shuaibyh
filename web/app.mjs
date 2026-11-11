@@ -1,15 +1,26 @@
 import { filterProjects } from './project-search.mjs';
 import { cardModel } from './project-view.mjs';
+import { sortProjects } from './project-sort.mjs';
+import { buildFilterUrl, parseFilterUrl } from './filter-url.mjs';
 
 const query = document.getElementById('query');
 const status = document.getElementById('status');
 const reset = document.getElementById('reset');
+const sort = document.getElementById('sort');
 const catalogNode = document.getElementById('catalog');
 const count = document.getElementById('count');
 const empty = document.getElementById('empty');
 const error = document.getElementById('error');
 
 let projects = [];
+
+function restoreFromUrl() {
+  const filters = parseFilterUrl(window.location.search);
+  query.value = filters.query;
+  status.value = filters.status;
+  sort.value = filters.sort;
+}
+restoreFromUrl();
 
 function externalLink({ label, href }) {
   const link = document.createElement('a');
@@ -48,8 +59,13 @@ function projectCard(project) {
   return card;
 }
 
-function updateResults() {
-  const results = filterProjects(projects, { query: query.value, status: status.value });
+function updateResults(writeUrl = false) {
+  const results = sortProjects(filterProjects(projects, { query: query.value, status: status.value }), sort.value);
+  if (writeUrl) {
+    window.history.replaceState(null, '', buildFilterUrl(window.location.href, {
+      query: query.value, status: status.value, sort: sort.value,
+    }));
+  }
   const nodes = results.map(projectCard);
   catalogNode.replaceChildren(...nodes);
   count.textContent = results.length + (results.length === 1 ? ' proyecto' : ' proyectos');
@@ -70,15 +86,19 @@ async function load() {
     reset.disabled = true;
     query.disabled = true;
     status.disabled = true;
+    sort.disabled = true;
   }
 }
 
-query.addEventListener('input', updateResults);
-status.addEventListener('change', updateResults);
+query.addEventListener('input', () => updateResults(true));
+status.addEventListener('change', () => updateResults(true));
+sort.addEventListener('change', () => updateResults(true));
+window.addEventListener('popstate', () => { restoreFromUrl(); if (!error.hidden) return; updateResults(); });
 reset.addEventListener('click', () => {
   query.value = '';
   status.value = 'all';
-  updateResults();
+  sort.value = 'original';
+  updateResults(true);
   query.focus();
 });
 
