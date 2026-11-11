@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { createServer as nodeCreateServer } from 'node:http';
-import { readFile } from 'node:fs/promises';
+import { readFile, realpath } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -49,7 +49,14 @@ export function createPortfolioServer(base = root) {
       return res.end();
     }
     try {
-      const bytes = await readFile(target);
+      const actualRoot = await realpath(base);
+      const actualFile = await realpath(target);
+      const relative = path.relative(actualRoot, actualFile);
+      if (relative === '..' || relative.startsWith('..' + path.sep) || path.isAbsolute(relative)) {
+        res.writeHead(404);
+        return res.end();
+      }
+      const bytes = await readFile(actualFile);
       const headers = {
         'Content-Type': types[path.extname(target)] ?? 'application/octet-stream',
         'X-Content-Type-Options': 'nosniff',
