@@ -2,11 +2,13 @@ import { filterProjects } from './project-search.mjs';
 import { cardModel } from './project-view.mjs';
 import { sortProjects } from './project-sort.mjs';
 import { buildFilterUrl, parseFilterUrl } from './filter-url.mjs';
+import { technologyOptions } from './technology-filters.mjs';
 
 const query = document.getElementById('query');
 const status = document.getElementById('status');
 const reset = document.getElementById('reset');
 const sort = document.getElementById('sort');
+const technology = document.getElementById('technology');
 const catalogNode = document.getElementById('catalog');
 const count = document.getElementById('count');
 const empty = document.getElementById('empty');
@@ -19,8 +21,8 @@ function restoreFromUrl() {
   query.value = filters.query;
   status.value = filters.status;
   sort.value = filters.sort;
+  technology.value = [...technology.options].some(option => option.value === filters.technology) ? filters.technology : 'all';
 }
-restoreFromUrl();
 
 function externalLink({ label, href }) {
   const link = document.createElement('a');
@@ -60,10 +62,10 @@ function projectCard(project) {
 }
 
 function updateResults(writeUrl = false) {
-  const results = sortProjects(filterProjects(projects, { query: query.value, status: status.value }), sort.value);
+  const results = sortProjects(filterProjects(projects, { query: query.value, status: status.value, technology: technology.value }), sort.value);
   if (writeUrl) {
     window.history.replaceState(null, '', buildFilterUrl(window.location.href, {
-      query: query.value, status: status.value, sort: sort.value,
+      query: query.value, status: status.value, sort: sort.value, technology: technology.value,
     }));
   }
   const nodes = results.map(projectCard);
@@ -79,6 +81,13 @@ async function load() {
     const payload = await response.json();
     if (!Array.isArray(payload.projects)) throw new Error('Catálogo incompatible');
     projects = payload.projects;
+    for (const {value, label, count} of technologyOptions(projects)) {
+      const option = document.createElement('option');
+      option.value = value;
+      option.textContent = `${label} (${count})`;
+      technology.append(option);
+    }
+    restoreFromUrl();
     updateResults();
   } catch {
     error.hidden = false;
@@ -87,17 +96,20 @@ async function load() {
     query.disabled = true;
     status.disabled = true;
     sort.disabled = true;
+    technology.disabled = true;
   }
 }
 
 query.addEventListener('input', () => updateResults(true));
 status.addEventListener('change', () => updateResults(true));
 sort.addEventListener('change', () => updateResults(true));
+technology.addEventListener('change', () => updateResults(true));
 window.addEventListener('popstate', () => { restoreFromUrl(); if (!error.hidden) return; updateResults(); });
 reset.addEventListener('click', () => {
   query.value = '';
   status.value = 'all';
   sort.value = 'original';
+  technology.value = 'all';
   updateResults(true);
   query.focus();
 });
