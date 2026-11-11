@@ -27,6 +27,7 @@ export function publicPath(urlPath, base = root) {
     /^\/web\/[A-Za-z0-9._/-]+\.(?:html|css|mjs|svg)$/.test(pathname) ||
     pathname === '/data/projects.json' ||
     /^\/docs\/[A-Za-z0-9._/-]+\.md$/.test(pathname) ||
+    /^\/casos\/[A-Za-z0-9-]+\.md$/.test(pathname) ||
     /^\/[A-Za-z0-9_-]+\.md$/.test(pathname) ||
     /^\/assets\/[A-Za-z0-9._/-]+\.svg$/.test(pathname);
   if (!allowed) return null;
