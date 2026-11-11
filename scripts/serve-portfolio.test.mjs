@@ -22,6 +22,8 @@ test('sirve páginas locales y bloquea archivos privados o métodos mutables', a
   try {
     await mkdir(path.join(dir, 'web'));
     await mkdir(path.join(dir, 'data'));
+    await mkdir(path.join(dir, 'casos'));
+    await writeFile(path.join(dir, 'casos', 'EJEMPLO.md'), '# Estudio local');
     await writeFile(path.join(dir, 'web', 'index.html'), '<!doctype html><title>Demo</title>');
     await writeFile(path.join(dir, 'web', 'styles.css'), 'body{}');
     await writeFile(path.join(dir, 'data', 'projects.json'), '{"projects":[]}');
@@ -36,6 +38,11 @@ test('sirve páginas locales y bloquea archivos privados o métodos mutables', a
     const catalog = await fetch(url + '/data/projects.json');
     assert.equal(catalog.status, 200);
     assert.deepEqual(await catalog.json(), { projects: [] });
+    const study = await fetch(url + '/casos/EJEMPLO.md');
+    assert.equal(study.status, 200);
+    assert.match(await study.text(), /Estudio local/);
+    const blocked = await fetch(url + '/casos/../.env');
+    assert.equal(blocked.status, 404);
     const hidden = await fetch(url + '/.env');
     assert.equal(hidden.status, 404);
     assert.doesNotMatch(await hidden.text(), /secret/);
