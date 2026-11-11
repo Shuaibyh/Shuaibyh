@@ -1,3 +1,5 @@
+import { hasTechnology } from './technology-filters.mjs';
+
 export const statusLabels = Object.freeze({
   'public-demo': 'Demostración pública',
   developing: 'En desarrollo',
@@ -13,6 +15,7 @@ export function filterProjects(projects, options = {}) {
   const status = options.status ?? 'all';
   return projects.filter(project => {
     if (status !== 'all' && project.status !== status) return false;
+    if (!hasTechnology(project, options.technology)) return false;
     if (!query) return true;
     const haystack = normalizeQuery([
       project.name, project.summary, ...(project.technologies ?? []),
