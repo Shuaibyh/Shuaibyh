@@ -11,7 +11,7 @@ const good = [
   '<body><a class="skip-link" href="#proyectos">Saltar</a>',
   '<main id="proyectos"><h1>Portafolio</h1>',
   '<label for="query">Buscar</label><input id="query">',
-  ...['catalog', 'count', 'status', 'reset', 'empty', 'error'].map(id => '<div id="' + id + '"></div>'),
+  ...['catalog', 'count', 'status', 'technology', 'sort', 'reset', 'empty', 'error'].map(id => '<div id="' + id + '"></div>'),
   '</main></body></html>',
 ].join('\n');
 
@@ -42,4 +42,9 @@ test('informa recursos locales ausentes', async () => {
   } finally {
     await rm(dir, { recursive: true, force: true });
   }
+});
+
+test('detecta filtros obligatorios ausentes en la estructura HTML', () => {
+  const html = good.replace('id="technology"', 'id="otro-id"');
+  assert.match(inspectSiteHtml(html).join(' '), /#technology/);
 });
