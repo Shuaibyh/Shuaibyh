@@ -17,6 +17,11 @@ export function cardModel(project) {
   if (repository) links.push({ label: 'Código en GitHub', href: repository });
   const demo = safeHttpsUrl(project.demo);
   if (demo) links.push({ label: 'Ver demostración', href: demo });
+  // Only local, documented case studies are exposed; never trust a path in arbitrary JSON.
+  if (typeof project.case_study === 'string' &&
+      /^casos\/[A-Za-z0-9-]+\.md$/.test(project.case_study)) {
+    links.push({ label: 'Estudio de caso', href: '../' + project.case_study });
+  }
   return {
     title: String(project.name ?? ''),
     summary: String(project.summary ?? ''),
