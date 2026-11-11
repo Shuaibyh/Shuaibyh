@@ -31,3 +31,13 @@ test('traduce estados y utiliza fallback para estados desconocidos', () => {
   assert.equal(statusLabel('public-demo'), 'Demostración pública');
   assert.equal(statusLabel('unknown'), 'Estado por confirmar');
 });
+
+test('combina tecnología y estado con criterios exactos', () => {
+  assert.deepEqual(filterProjects(projects, {technology:'react',status:'developing'}).map(p=>p.name), ['AULIGMA']);
+  assert.deepEqual(filterProjects(projects, {technology:'java',status:'public-demo'}), []);
+  assert.deepEqual(filterProjects(projects, {query:'3d',technology:'three.js'}).map(p=>p.name), ['Ensamble PC']);
+});
+
+test('un filtro de tecnología desconocida no devuelve resultados', () => {
+  assert.deepEqual(filterProjects(projects, {technology:'lenguaje-inexistente'}), []);
+});
