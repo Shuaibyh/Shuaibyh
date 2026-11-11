@@ -28,3 +28,22 @@ test('convierte valores del catálogo en datos y no en HTML', () => {
   assert.equal(card.links.length, 1);
   assert.equal(card.summary, '<script>alert(1)</script>');
 });
+
+test('incluye el estudio de caso válido como enlace local', () => {
+  const card = cardModel({
+    name: 'AULIGMA', summary: 'Aprendizaje', status: 'developing',
+    repository: 'https://github.com/Shuaibyh/auligma',
+    demo: null, case_study: 'casos/AULIGMA.md',
+  });
+  assert.deepEqual(card.links.at(-1), {label: 'Estudio de caso', href: '../casos/AULIGMA.md'});
+});
+
+test('rechaza rutas de caso maliciosas o fuera de la carpeta permitida', () => {
+  for (const case_study of ['../README.md', 'casos/../../.env', 'https://example.com', 'casos/a.md?x=1']) {
+    const card = cardModel({
+      name:'Demo', summary:'Demo', status:'prototype',
+      repository:'https://github.com/Shuaibyh/demo', demo:null, case_study,
+    });
+    assert.equal(card.links.some(link => link.label === 'Estudio de caso'), false);
+  }
+});
