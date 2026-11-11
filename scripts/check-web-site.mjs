@@ -4,7 +4,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
-const requiredIds = ['proyectos', 'catalog', 'count', 'query', 'status', 'reset', 'empty', 'error'];
+const requiredIds = ['proyectos', 'catalog', 'count', 'query', 'status', 'technology', 'sort', 'reset', 'empty', 'error'];
 
 export function inspectSiteHtml(html) {
   const issues = [];
