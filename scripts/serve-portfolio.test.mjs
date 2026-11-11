@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { once } from 'node:events';
-import { mkdtemp, mkdir, rm, writeFile } from 'node:fs/promises';
+import { mkdtemp, mkdir, rm, symlink, writeFile } from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
 import test from 'node:test';
@@ -54,5 +54,26 @@ test('sirve páginas locales y bloquea archivos privados o métodos mutables', a
   } finally {
     await new Promise(resolve => server.close(resolve));
     await rm(dir, { recursive: true, force: true });
+  }
+});
+
+test('no entrega recursos públicos apuntados por un symlink externo', async (t) => {
+  if (process.platform === 'win32') return t.skip('El permiso de symlinks varía en Windows');
+  const root = await mkdtemp(path.join(os.tmpdir(), 'portfolio-symlink-'));
+  const outside = await mkdtemp(path.join(os.tmpdir(), 'portfolio-private-'));
+  const server = createPortfolioServer(root);
+  try {
+    await mkdir(path.join(root, 'casos'));
+    await writeFile(path.join(outside, 'PRIVADO.md'), 'NO_PUBLICAR');
+    await symlink(path.join(outside, 'PRIVADO.md'), path.join(root, 'casos', 'PRIVADO.md'));
+    server.listen(0, '127.0.0.1');
+    await once(server, 'listening');
+    const response = await fetch('http://127.0.0.1:' + server.address().port + '/casos/PRIVADO.md');
+    assert.equal(response.status, 404);
+    assert.doesNotMatch(await response.text(), /NO_PUBLICAR/);
+  } finally {
+    if (server.listening) await new Promise(resolve => server.close(resolve));
+    await rm(root, {force:true, recursive:true});
+    await rm(outside, {force:true, recursive:true});
   }
 });
