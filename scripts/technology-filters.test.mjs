@@ -52,3 +52,8 @@ test('normaliza Unicode descompuesto y valores ausentes', () => {
   assert.equal(technologyKey(null), '');
   assert.equal(technologyKey(17), '17');
 });
+
+test('ordena naturalmente los sufijos numéricos de tecnologías', () => {
+  const data = [{ technologies: ['React 10'] }, { technologies: ['React 2'] }];
+  assert.deepEqual(technologyOptions(data).map(item => item.value), ['react 2', 'react 10']);
+});
