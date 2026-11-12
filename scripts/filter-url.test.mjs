@@ -42,3 +42,8 @@ test('prefiere el primer valor de parámetros duplicados de la URL', () => {
   assert.equal(value.status, 'developing');
   assert.equal(value.sort, 'status');
 });
+
+test('elimina filtros obsoletos sin eliminar parámetros ajenos', () => {
+  const result = buildFilterUrl('https://example.org/explorar?origen=abc&q=vieja&estado=prototype&orden=status&tec=Java#catalogo');
+  assert.equal(result, '/explorar?origen=abc#catalogo');
+});
