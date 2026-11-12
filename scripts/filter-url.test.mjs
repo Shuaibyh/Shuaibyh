@@ -30,3 +30,9 @@ test('tecnología se codifica sin perder parámetros y normaliza acentos', () =>
   assert.equal(parseFilterUrl('?tec=MATEM%C3%81TICA').technology,'matematica');
   assert.equal(parseFilterUrl('?tec=' + 'a'.repeat(100)).technology,'all');
 });
+
+test('codifica búsquedas con signos de consulta y conserva el fragmento', () => {
+  const result = buildFilterUrl('https://example.org/portfolio?origen=web#lista', { query: 'React & TypeScript?' });
+  assert.equal(result, '/portfolio?origen=web&q=React+%26+TypeScript%3F#lista');
+  assert.equal(parseFilterUrl(result.split('?')[1]).query, 'React & TypeScript?');
+});
