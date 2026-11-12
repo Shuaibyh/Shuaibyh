@@ -58,3 +58,9 @@ test('una búsqueda compuesta solo por espacios conserva todos los proyectos', (
   assert.deepEqual(matches, projects);
   assert.notStrictEqual(matches, projects);
 });
+
+test('rechaza estados no incluidos en el catálogo y conserva el origen', () => {
+  const snapshot = JSON.stringify(projects);
+  assert.deepEqual(filterProjects(projects, { status: 'archived' }), []);
+  assert.equal(JSON.stringify(projects), snapshot);
+});
