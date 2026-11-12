@@ -39,3 +39,10 @@ test('cuenta etiquetas equivalentes solo una vez por proyecto', () => {
   ];
   assert.deepEqual(technologyOptions(data), [{ value: 'matematica', label: 'MATEMÁTICA', count: 2 }]);
 });
+
+test('distingue un filtro ausente de una tecnología inexistente', () => {
+  assert.equal(hasTechnology({}, null), true);
+  assert.equal(hasTechnology({}, 'all'), true);
+  assert.equal(hasTechnology({}, 'React'), false);
+  assert.equal(hasTechnology({ technologies: ['React'] }, 'Java'), false);
+});
