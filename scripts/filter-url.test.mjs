@@ -47,3 +47,9 @@ test('elimina filtros obsoletos sin eliminar parámetros ajenos', () => {
   const result = buildFilterUrl('https://example.org/explorar?origen=abc&q=vieja&estado=prototype&orden=status&tec=Java#catalogo');
   assert.equal(result, '/explorar?origen=abc#catalogo');
 });
+
+test('rechaza tecnologías que superan exactamente el límite admitido', () => {
+  assert.equal(parseFilterUrl('?tec=' + 'A'.repeat(80)).technology, 'a'.repeat(80));
+  assert.equal(parseFilterUrl('?tec=' + 'A'.repeat(81)).technology, 'all');
+  assert.equal(buildFilterUrl('https://example.org/', { technology: 'A'.repeat(81) }), '/');
+});
