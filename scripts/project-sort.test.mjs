@@ -31,3 +31,8 @@ test('ubica estados desconocidos al final respetando el orden de empate', () => 
   ];
   assert.deepEqual(sortProjects(input, 'status').map(x => x.name), ['Demo', 'Desconocido A', 'Desconocido B']);
 });
+
+test('mantiene estable la ordenación insensible a acentos y mayúsculas', () => {
+  const input = [{ name: 'Árbol', id: 1 }, { name: 'arbol', id: 2 }, { name: 'Beta', id: 3 }];
+  assert.deepEqual(sortProjects(input, 'name-asc').map(x => x.id), [1, 2, 3]);
+});
