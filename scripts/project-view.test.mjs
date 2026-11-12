@@ -54,3 +54,9 @@ test('bloquea direcciones relativas y esquemas no HTTPS', () => {
   }
   assert.equal(safeHttpsUrl(null), null);
 });
+
+test('ofrece valores por defecto para fichas incompletas', () => {
+  assert.deepEqual(cardModel({}), {
+    title: '', summary: '', status: 'Estado por confirmar', technologies: [], links: [],
+  });
+});
