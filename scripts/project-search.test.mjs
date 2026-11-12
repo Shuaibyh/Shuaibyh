@@ -52,3 +52,9 @@ test('normaliza caracteres combinados y entradas nulas de búsqueda', () => {
 test('encuentra coincidencias en los resúmenes sin depender de tildes', () => {
   assert.deepEqual(filterProjects(projects, { query: 'gestion academica' }).map(p => p.name), ['Academia José']);
 });
+
+test('una búsqueda compuesta solo por espacios conserva todos los proyectos', () => {
+  const matches = filterProjects(projects, { query: ' \t ' });
+  assert.deepEqual(matches, projects);
+  assert.notStrictEqual(matches, projects);
+});
