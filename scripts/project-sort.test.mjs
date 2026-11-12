@@ -22,3 +22,12 @@ test('no modifica el catálogo fuente ni falla por modo desconocido', () => {
   assert.deepEqual(entries, original);
   assert.ok(sortModes.includes('status'));
 });
+
+test('ubica estados desconocidos al final respetando el orden de empate', () => {
+  const input = [
+    { name: 'Desconocido A', status: 'retired' },
+    { name: 'Demo', status: 'public-demo' },
+    { name: 'Desconocido B', status: 'retired' },
+  ];
+  assert.deepEqual(sortProjects(input, 'status').map(x => x.name), ['Demo', 'Desconocido A', 'Desconocido B']);
+});
