@@ -36,3 +36,9 @@ test('codifica búsquedas con signos de consulta y conserva el fragmento', () =>
   assert.equal(result, '/portfolio?origen=web&q=React+%26+TypeScript%3F#lista');
   assert.equal(parseFilterUrl(result.split('?')[1]).query, 'React & TypeScript?');
 });
+
+test('prefiere el primer valor de parámetros duplicados de la URL', () => {
+  const value = parseFilterUrl('?estado=developing&estado=prototype&orden=status&orden=name-asc');
+  assert.equal(value.status, 'developing');
+  assert.equal(value.sort, 'status');
+});
