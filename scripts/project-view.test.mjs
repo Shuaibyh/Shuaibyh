@@ -60,3 +60,11 @@ test('ofrece valores por defecto para fichas incompletas', () => {
     title: '', summary: '', status: 'Estado por confirmar', technologies: [], links: [],
   });
 });
+
+test('admite casos de estudio seguros con números y guiones', () => {
+  const valid = cardModel({ case_study: 'casos/REVISION-2026.md' });
+  assert.deepEqual(valid.links, [{ label: 'Estudio de caso', href: '../casos/REVISION-2026.md' }]);
+  for (const value of ['casos/a_b.md', 'casos/%2e%2e.md', 'casos/índice.md']) {
+    assert.deepEqual(cardModel({ case_study: value }).links, []);
+  }
+});
