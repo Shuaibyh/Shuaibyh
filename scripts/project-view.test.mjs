@@ -47,3 +47,10 @@ test('rechaza rutas de caso maliciosas o fuera de la carpeta permitida', () => {
     assert.equal(card.links.some(link => link.label === 'Estudio de caso'), false);
   }
 });
+
+test('bloquea direcciones relativas y esquemas no HTTPS', () => {
+  for (const url of ['', '//example.org/path', '/docs', 'ftp://example.org', 'https://user@example.org']) {
+    assert.equal(safeHttpsUrl(url), null, url);
+  }
+  assert.equal(safeHttpsUrl(null), null);
+});
