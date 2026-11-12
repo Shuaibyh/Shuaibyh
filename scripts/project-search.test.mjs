@@ -41,3 +41,10 @@ test('combina tecnología y estado con criterios exactos', () => {
 test('un filtro de tecnología desconocida no devuelve resultados', () => {
   assert.deepEqual(filterProjects(projects, {technology:'lenguaje-inexistente'}), []);
 });
+
+test('normaliza caracteres combinados y entradas nulas de búsqueda', () => {
+  assert.equal(normalizeQuery('  Jose\u0301  '), 'jose');
+  assert.equal(normalizeQuery(null), '');
+  assert.equal(normalizeQuery(undefined), '');
+  assert.equal(normalizeQuery(42), '42');
+});
