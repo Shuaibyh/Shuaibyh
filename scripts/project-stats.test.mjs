@@ -42,3 +42,9 @@ test('genera informe legible a partir de un archivo temporal', async () => {
 test('rechaza estructuras de datos inválidas', () => {
   assert.throws(() => projectStats({}), /projects/);
 });
+
+test('genera estadísticas válidas para un catálogo vacío', () => {
+  const result = projectStats({ projects: [] });
+  assert.deepEqual(result, { total: 0, demos: 0, statuses: [], technologies: [] });
+  assert.match(formatStats(result), /Proyectos: 0/);
+});
