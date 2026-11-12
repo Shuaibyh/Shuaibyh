@@ -26,3 +26,8 @@ test('filtra por tecnología exacta, no por coincidencias parciales', () => {
   assert.equal(hasTechnology(projects[2],'MATEMATICA'),true);
   assert.equal(hasTechnology(projects[3],'all'),true);
 });
+
+test('omite tecnologías vacías y valores no textuales sin fallar', () => {
+  const data = [{ technologies: null }, { technologies: ['  ', 7, null, 'Java'] }, {}];
+  assert.deepEqual(technologyOptions(data), [{ value: 'java', label: 'Java', count: 1 }]);
+});
