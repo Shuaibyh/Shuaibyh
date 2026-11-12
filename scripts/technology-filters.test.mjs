@@ -46,3 +46,9 @@ test('distingue un filtro ausente de una tecnología inexistente', () => {
   assert.equal(hasTechnology({}, 'React'), false);
   assert.equal(hasTechnology({ technologies: ['React'] }, 'Java'), false);
 });
+
+test('normaliza Unicode descompuesto y valores ausentes', () => {
+  assert.equal(technologyKey('  CAFE\u0301  '), 'cafe');
+  assert.equal(technologyKey(null), '');
+  assert.equal(technologyKey(17), '17');
+});
