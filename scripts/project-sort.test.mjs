@@ -36,3 +36,10 @@ test('mantiene estable la ordenación insensible a acentos y mayúsculas', () =>
   const input = [{ name: 'Árbol', id: 1 }, { name: 'arbol', id: 2 }, { name: 'Beta', id: 3 }];
   assert.deepEqual(sortProjects(input, 'name-asc').map(x => x.id), [1, 2, 3]);
 });
+
+test('sitúa nombres ausentes antes de nombres definidos sin mutar el origen', () => {
+  const input = [{ name: 'Zeta' }, { status: 'prototype' }, { name: 'Alfa' }];
+  const result = sortProjects(input, 'name-asc');
+  assert.deepEqual(result.map(x => x.name ?? ''), ['', 'Alfa', 'Zeta']);
+  assert.equal(input[0].name, 'Zeta');
+});
