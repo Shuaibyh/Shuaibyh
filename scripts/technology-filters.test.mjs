@@ -31,3 +31,11 @@ test('omite tecnologías vacías y valores no textuales sin fallar', () => {
   const data = [{ technologies: null }, { technologies: ['  ', 7, null, 'Java'] }, {}];
   assert.deepEqual(technologyOptions(data), [{ value: 'java', label: 'Java', count: 1 }]);
 });
+
+test('cuenta etiquetas equivalentes solo una vez por proyecto', () => {
+  const data = [
+    { technologies: ['MATEMÁTICA', 'matematica', 'Matemática'] },
+    { technologies: ['Matemática'] },
+  ];
+  assert.deepEqual(technologyOptions(data), [{ value: 'matematica', label: 'MATEMÁTICA', count: 2 }]);
+});
