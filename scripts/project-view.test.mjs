@@ -68,3 +68,16 @@ test('admite casos de estudio seguros con números y guiones', () => {
     assert.deepEqual(cardModel({ case_study: value }).links, []);
   }
 });
+
+test('mantiene el orden de enlaces y omite tecnologías no textuales', () => {
+  const card = cardModel({
+    name: 'Proyecto', summary: 'Ejemplo', status: 'public-demo',
+    repository: 'https://github.com/Shuaibyh/example',
+    demo: 'https://example.org/demo', case_study: 'casos/PROYECTO.md',
+    technologies: ['React', 123, null, 'TypeScript'],
+  });
+  assert.deepEqual(card.technologies, ['React', 'TypeScript']);
+  assert.deepEqual(card.links.map(link => link.label), [
+    'Código en GitHub', 'Ver demostración', 'Estudio de caso',
+  ]);
+});
