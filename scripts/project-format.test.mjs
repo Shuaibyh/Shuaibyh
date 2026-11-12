@@ -55,3 +55,9 @@ test('serializa retornos de carro sin romper celdas CSV', () => {
   assert.equal(csvCell('línea 1\r\nlínea 2'), '"línea 1\r\nlínea 2"');
   assert.equal(csvCell('"ejemplo"'), '"""ejemplo"""');
 });
+
+test('protege fórmulas precedidas por espacios y tabulaciones', () => {
+  assert.ok(csvCell('  =SUM(A1:A2)').startsWith("'  ="));
+  assert.ok(csvCell('\t+CMD').startsWith("'\t+"));
+  assert.equal(csvCell('  Proyecto normal'), '  Proyecto normal');
+});
