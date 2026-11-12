@@ -48,3 +48,7 @@ test('normaliza caracteres combinados y entradas nulas de búsqueda', () => {
   assert.equal(normalizeQuery(undefined), '');
   assert.equal(normalizeQuery(42), '42');
 });
+
+test('encuentra coincidencias en los resúmenes sin depender de tildes', () => {
+  assert.deepEqual(filterProjects(projects, { query: 'gestion academica' }).map(p => p.name), ['Academia José']);
+});
