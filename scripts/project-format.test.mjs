@@ -50,3 +50,8 @@ test('rechaza un catálogo sin lista projects', () => {
   assert.throws(() => toMarkdown(null), /projects/);
   assert.throws(() => toPublicJson({ projects: {} }), /projects/);
 });
+
+test('serializa retornos de carro sin romper celdas CSV', () => {
+  assert.equal(csvCell('línea 1\r\nlínea 2'), '"línea 1\r\nlínea 2"');
+  assert.equal(csvCell('"ejemplo"'), '"""ejemplo"""');
+});
